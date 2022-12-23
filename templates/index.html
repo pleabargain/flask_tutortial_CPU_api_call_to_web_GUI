@@ -1,0 +1,31 @@
+<!-- # create a simple HTML flask template -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CPU Meter</title>
+    <!-- import jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>CPU Meter <span id="cpu_usage"></span>    </h1>
+    <h1>CPU count <span id="cpu_count"></span>    </h1>
+    <!-- create script tag -->
+    <script>
+        // create a jquery get request fuction to fetch cpu usage
+        function fetch_cpu_usage() {
+            $.get('api/cpu', function (data) {
+                console.log(data);
+                $('#cpu_usage').html(data);
+            })
+        }
+        // set the interval to 1 second
+        setInterval(function(){
+            fetch_cpu_usage();
+            }, 1000);
+
+    </script>
+
+
+
+</html>
+    

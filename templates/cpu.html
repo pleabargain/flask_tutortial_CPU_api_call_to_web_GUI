@@ -1,0 +1,33 @@
+<!-- create a flask template that holds the cpu.html file  -->
+{% extends "index.html" %}
+<!-- create a block called content -->
+{% block content %}
+<!-- create a table with the following headings -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Device</th>
+            <th>IP Address</th>
+            <th>Vendor</th>
+            <th>Model</th>
+            <th>Serial Number</th>
+            <th>Uptime</th>
+            <th>Memory</th>
+            <th>CPU</th>
+        </tr>
+    </thead>
+    <!-- create a for loop that will loop through the data in the cpu.html file -->
+    {% for device in devices %}
+    <tbody>
+        <tr>
+            <td>{{ device.hostname }}</td>
+            <td>{{ device.ip_address }}</td>
+            <td>{{ device.vendor }}</td>
+            <td>{{ device.model }}</td>
+            <td>{{ device.serial_number }}</td>
+            <td>{{ device.uptime }}</td>
+            <td>{{ device.memory }}</td>
+            <td>{{ device.cpu }}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
